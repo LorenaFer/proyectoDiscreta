@@ -164,10 +164,10 @@
     <div class="results">
       <p>Tu puntuación es: {score} de {questions.length}</p>
       {#if score === questions.length}
-        <a href="/lecciones/fibonacci3">Continuar</a>
+        <a href="/lecciones/fibonacci3/1">Continuar</a>
       {:else}
         <button on:click={() => handleDecision(false, true)}>Intentar de Nuevo</button>
-        <a href="/lecciones/fibonacci2">Volver a la Lección</a>
+        <a href="/lecciones/fibonacci2/1">Volver a la Lección</a>
         <a href="/prinLecciones">Página Principal</a>
       {/if}
     </div>

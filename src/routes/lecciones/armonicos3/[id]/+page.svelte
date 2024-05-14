@@ -2,11 +2,7 @@
     import { goto } from '$app/navigation'; // Asegúrate de que esta es la ruta correcta para la función de navegación en tu proyecto.
   
     let gifs = [
-      '/leccionese/1e.png',
-      '/leccionese/2e.png',
-      '/leccionese/3e.png',
-      '/leccionese/4e.png',
-      '/leccionese/5e.png',
+      '/fineuler.png',
   ];
     export let data;
     let index = 0;
@@ -86,16 +82,16 @@
   </style>
   <header>
     <img src="/logo.png" alt="Logo de Numeric Art" class="logo">
-    <span class="title">Número de Euler</span>
+    <span class="title">Serie Armónica</span>
   </header>
   <div class="carousel-container">
     <img src={data.body.imagen} alt="Lección de matemáticas" />
     <div>
-        <a href={`/lecciones/euler/${(data.body.id == 1) ? 1 : data.body.id-1}`}>Anterior</a>
-        <a href={`/lecciones/euler/${ (data.body.id ==data.body.maxImage)? data.body.maxImage : (parseInt(String(data.body.id)) +1) }`}>Siguiente</a>
+        <a href={`/lecciones/armonicos3/${(data.body.id == 1) ? 1 : data.body.id-1}`}>Anterior</a>
+        <a href={`/lecciones/armonicos3/${ (data.body.id ==data.body.maxImage)? data.body.maxImage : (parseInt(String(data.body.id)) +1) }`}>Siguiente</a>
       
       {#if data.body.id ==data.body.maxImage}
-      <a href={`/quize/quiz1/`}>Ir al Quiz</a>
+bernoulli2      <a href={`/prinLecciones`}>Volver a Lecciones</a>
       {/if}
     </div>
   </div>

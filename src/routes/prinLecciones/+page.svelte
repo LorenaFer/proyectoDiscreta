@@ -88,7 +88,7 @@
   </div>
   <div class="lesson">
     <img src="/cientificos/bernoulli.png" alt="Número de Bernoulli">
-    <a href="/lecciones/bernoulli1">Número de Bernoulli</a>
+    <a href="/lecciones/bernoulli1/1">Número de Bernoulli</a>
   </div>
   <div class="lesson">
     <img src="/cientificos/fibonacci.png" alt="Número de Fibonacci">

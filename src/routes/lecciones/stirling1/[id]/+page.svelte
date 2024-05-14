@@ -1,12 +1,13 @@
 <script>
     import { goto } from '$app/navigation'; // Asegúrate de que esta es la ruta correcta para la función de navegación en tu proyecto.
   
-    let gifs = [
-      '/leccionese/1e.png',
-      '/leccionese/2e.png',
-      '/leccionese/3e.png',
-      '/leccionese/4e.png',
-      '/leccionese/5e.png',
+    let gifs = [       
+      '/stirlingImg/1s.png',
+      '/stirlingImg/2s.png',
+      '/stirlingImg/3s.png',
+      '/stirlingImg/4s.png',
+      '/stirlingImg/5s.png',
+
   ];
     export let data;
     let index = 0;
@@ -25,7 +26,7 @@
   
     // Actualización para utilizar la ruta correcta
     function goToQuiz() {
-      goto('/quize/quiz1/'); // Utiliza la barra al final para indicar el directorio
+      goto('/quize/quiz4/'); // Utiliza la barra al final para indicar el directorio
     }
   </script>
   
@@ -86,16 +87,16 @@
   </style>
   <header>
     <img src="/logo.png" alt="Logo de Numeric Art" class="logo">
-    <span class="title">Número de Euler</span>
+    <span class="title">Números de Stirling</span>
   </header>
   <div class="carousel-container">
     <img src={data.body.imagen} alt="Lección de matemáticas" />
     <div>
-        <a href={`/lecciones/euler/${(data.body.id == 1) ? 1 : data.body.id-1}`}>Anterior</a>
-        <a href={`/lecciones/euler/${ (data.body.id ==data.body.maxImage)? data.body.maxImage : (parseInt(String(data.body.id)) +1) }`}>Siguiente</a>
+        <a href={`/lecciones/stirling1/${(data.body.id == 1) ? 1 : data.body.id-1}`}>Anterior</a>
+        <a href={`/lecciones/stirling1/${ (data.body.id ==data.body.maxImage)? data.body.maxImage : (parseInt(String(data.body.id)) +1) }`}>Siguiente</a>
       
       {#if data.body.id ==data.body.maxImage}
-      <a href={`/quize/quiz1/`}>Ir al Quiz</a>
+      <a href={`/juegos/stirling-game-1`}>Ir al Quiz</a>
       {/if}
     </div>
   </div>

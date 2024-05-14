@@ -29,23 +29,9 @@
       }
     }
   
-    function checkAnswers() {
-      let allCorrect = true;
-      for (let i = 0; i < answers.length; i++) {
-        for (let j = 0; j < answers[i].length; j++) {
-          if (answers[i][j] !== correctAnswers[i][j]) {
-            allCorrect = false;
-            break;
-          }
-        }
-      }
-      if (allCorrect) {
-        alert('¡Correcto! Todos los números son correctos.');
-        goto('/lecciones/stirling3');
-      } else {
-        alert('Algunos números son incorrectos. Por favor, revisa tus respuestas.');
-      }
-    }
+    $: allCorrect = answers.every((answerGroup, i) =>
+    answerGroup.every((answer, j) => answer === correctAnswers[i][j]),
+  );
   </script>
   
   <style>
@@ -128,7 +114,7 @@
       background-color: #90ee90; /* Light green for correct answers */
     }
   
-    button {
+    a {
       margin-top: 20px;
       padding: 10px 20px;
       background-color: #4CAF50; /* Green background for the button */
@@ -136,6 +122,9 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+    }
+    a:hover {
+      background-color: #367c39;
     }
     table tr:first-child,
     table tr td:first-child {
@@ -166,7 +155,15 @@
           </tr>
         {/each}
       </table>
-      <button on:click={checkAnswers}>Comprobar</button>
+      {#if allCorrect}
+      <p>
+        ¡Correcto! Todos los números son correctos. <a
+          href="/lecciones/stirling3/1">Continuar</a
+        >
+      </p>
+    {:else}
+      <p>Algunos números son incorrectos. Por favor, revisa tus respuestas.</p>
+    {/if}
     </div>
   </div>
   

@@ -74,6 +74,9 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      text-decoration: none;
+      color: #000;
+      font-family: 'Arial', sans-serif;
     }
     a:hover {
       background-color: #cccccc;
@@ -86,8 +89,8 @@
   <div class="carousel-container">
     <img src={data.body.imagen} alt="Lección de matemáticas" />
     <div>
-        <a href={`/lecciones/euler2/${(data.body.imagenID == 1) ? 1 : data.body.imagenID-1}`}>Anterior</a>
-        <a href={`/lecciones/euler2/${(data.body.imagenID == data.body.maxImage) ? data.body.maxImage : parseInt(String(data.body.imagenID))+ 1}`}>Siguiente</a>
+      <a href={`/lecciones/euler2/${(data.body.imagenID == 1) ? 1 : data.body.imagenID-1}`}>Anterior</a>
+      <a href={`/lecciones/euler2/${(data.body.imagenID == data.body.maxImage) ? data.body.maxImage : parseInt(String(data.body.imagenID))+ 1}`}>Siguiente</a>
    
       {#if data.body.imagenID == data.body.maxImage}
         <a href="/quize/quiz2/">Ir al Quiz</a>

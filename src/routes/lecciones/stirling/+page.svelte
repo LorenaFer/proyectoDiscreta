@@ -58,5 +58,5 @@
   </div>
   
   <div style="display: flex; justify-content: center;">
-    <a href="/lecciones/stirling1">Continuar</a>
+    <a href="/lecciones/stirling1/1">Continuar</a>
   </div>

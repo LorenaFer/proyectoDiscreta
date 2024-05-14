@@ -1,21 +1,55 @@
 <script>
-  import { goto } from '$app/navigation';
+  import { goto } from "$app/navigation";
 
-  let answers = ['', '', '', ''];
-  const correctAnswers = [1, 13,55, 233];
-  let message = '';
+  let answers = ["", "", "", ""];
+  const correctAnswers = [1, 13, 55, 233];
+  let message = "";
+  let isCorrect = false;
+  $: isCorrect = answers.every(
+    (answer, index) => parseInt(answer) === correctAnswers[index]
+  );
 
-  function checkAnswers() {
-    const isCorrect = answers.every((answer, index) => parseInt(answer) === correctAnswers[index]);
+  $: {
     if (isCorrect) {
       message = "¡Correcto! Buen trabajo.";
-      goto('/lecciones/fibonacci2'); // Redirige a la nueva página si las respuestas son correctas
     } else {
       message = "Algunas respuestas son incorrectas, inténtalo de nuevo.";
     }
   }
 </script>
 
+<header>
+  <img src="/logo.png" alt="Logo de Numeric Art" class="logo" />
+  <span class="title">Sucesión de Fibonacci</span>
+</header>
+<div class="fibonacci-container">
+  <div class="fibonacci-info">
+    <img
+      src="/fibonacci/fibo.png"
+      alt="Fibonacci Spiral"
+      class="fibonacci-image"
+    />
+    <div>
+      <h2>Completa la Sucesión de Fibonacci</h2>
+      <div class="fibonacci-sequence">
+        0, 1, <input bind:value={answers[0]} type="number" />, 2, 3, 5, 8,
+        <input bind:value={answers[1]} type="number" />, 21, 34,
+        <input bind:value={answers[2]} type="number" />, 89, 144,
+        <input bind:value={answers[3]} type="number" />, 377, 610, 987, 1597,
+        ...
+      </div>
+      {#if isCorrect}
+        <p>
+          ¡Correcto! Buen trabajo. <a href="/lecciones/fibonacci2/1"
+            >Continuar</a
+          >
+        </p>
+        
+      {/if}
+      
+    </div>
+  </div>
+</div>
 
 <style>
   header {
@@ -33,7 +67,7 @@
   }
   .title {
     color: #ffffff;
-    font-family: 'Arial', sans-serif;
+    font-family: "Arial", sans-serif;
     font-size: 24px;
     position: absolute; /* Posición absoluta para centrar */
     left: 50%; /* Centrado horizontal */
@@ -53,8 +87,8 @@
     display: flex;
     align-items: center;
     margin: 20px;
-    color:#264B62;
-    font-family: 'Arial';
+    color: #264b62;
+    font-family: "Arial";
   }
   .fibonacci-image {
     width: 200px;
@@ -70,9 +104,9 @@
     margin: 0 5px;
     text-align: center;
   }
-  .comprobar-button {
+  a {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #4caf50;
     color: white;
     border: none;
     border-radius: 5px;
@@ -81,29 +115,7 @@
     margin-top: 20px;
     align-self: center; /* Centra el botón en el contenedor */
   }
-  .comprobar-button:hover {
+  a:hover {
     background-color: #367c39;
   }
-  .message {
-    color: #d32f2f;
-    margin-top: 20px;
-  }
 </style>
-
-<header>
-  <img src="/logo.png" alt="Logo de Numeric Art" class="logo">
-  <span class="title">Sucesión de Fibonacci</span>
-</header>
-<div class="fibonacci-container">
-  <div class="fibonacci-info">
-    <img src="/fibonacci/fibo.png" alt="Fibonacci Spiral" class="fibonacci-image">
-    <div>
-      <h2>Completa la Sucesión de Fibonacci</h2>
-      <div class="fibonacci-sequence">
-        0, 1, <input bind:value={answers[0]} type="number">, 2, 3, 5, 8, <input bind:value={answers[1]} type="number">, 21, 34, <input bind:value={answers[2]} type="number">, 89, 144, <input bind:value={answers[3]} type="number">, 377, 610, 987, 1597, ...
-      </div>
-      <button class="comprobar-button" on:click={checkAnswers}>Comprobar</button>
-      <p class="message">{message}</p>
-    </div>
-  </div>
-</div>

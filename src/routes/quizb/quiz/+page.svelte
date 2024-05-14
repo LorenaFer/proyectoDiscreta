@@ -207,10 +207,10 @@
     <div class="results">
       <p>Tu puntuación es: {score} de {questions.length}</p>
       {#if score === questions.length}
-        <a href="/lecciones/bernoulli2">Continuar</a>
+        <a href="/lecciones/bernoulli2/1">Continuar</a>
       {:else}
         <button on:click={() => handleDecision(false, true)}>Intentar de Nuevo</button>
-        <a href="/lecciones/bernoulli1">Volver a la Lección</a>
+        <a href="/lecciones/bernoulli1/1">Volver a la Lección</a>
         <a href="/prinLecciones">Página Principal</a>
       {/if}
     </div>

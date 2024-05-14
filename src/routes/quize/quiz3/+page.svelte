@@ -177,10 +177,10 @@
     <div class="results">
       <p>Tu puntuación es: {score} de {questions.length}</p>
       {#if score === questions.length}
-        <a href="/lecciones/euler4">Continuar</a>
+        <a href="/lecciones/euler4/1">Continuar</a>
       {:else}
         <button on:click={() => handleDecision(false, true)}>Intentar de Nuevo</button>
-        <a href="/lecciones/euler3">Volver a la Lección</a>
+        <a href="/lecciones/euler3/1">Volver a la Lección</a>
         <a href="/prinLecciones">Página Principal</a>
       {/if}
     </div>

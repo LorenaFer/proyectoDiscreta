@@ -11,6 +11,7 @@
       '/historiae/7.png',
       '/historiae/8.png',
   ];
+    export let data;
     let index = 0;
   
     function nextGif() {
@@ -31,30 +32,30 @@
     }
   </script>
   
-  <style>  
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start; /* Cambiado para alinear elementos al inicio */
-      background-color: #191919;
-      padding: 10px;
-      position: relative; /* Posicionamiento relativo para el centrado del título */
-    }
-    .logo {
-      width: 80px;
-      height: auto;
-      margin-right: 20px; /* Espacio entre el logo y el título */
-    }
-    .title {
-      color: #ffffff;
-      font-family: 'Arial', sans-serif;
-      font-size: 24px;
-      position: absolute; /* Posición absoluta para centrar */
-      left: 50%; /* Centrado horizontal */
-      transform: translateX(-50%); /* Ajuste fino para centrar exactamente */
-      width: 100%; /* Ancho completo para centrar correctamente */
-      text-align: center; /* Texto centrado */
-    }
+  <style>
+        header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Cambiado para alinear elementos al inicio */
+        background-color: #191919;
+        padding: 10px;
+        position: relative; /* Posicionamiento relativo para el centrado del título */
+      }
+      .logo {
+        width: 80px;
+        height: auto;
+        margin-right: 20px; /* Espacio entre el logo y el título */
+      }
+      .title {
+        color: #ffffff;
+        font-family: 'Arial', sans-serif;
+        font-size: 24px;
+        position: absolute; /* Posición absoluta para centrar */
+        left: 50%; /* Centrado horizontal */
+        transform: translateX(-50%); /* Ajuste fino para centrar exactamente */
+        width: 100%; /* Ancho completo para centrar correctamente */
+        text-align: center; /* Texto centrado */
+      }
     .carousel-container {
       display: flex;
       flex-direction: column;
@@ -71,15 +72,18 @@
       height: auto;
       margin-bottom: 20px;
     }
-    button {
+    a {
       padding: 10px 20px;
       margin: 10px;
       background-color: #ffffff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      text-decoration: none;
+      color: #000;
+      font-family: 'Arial', sans-serif;
     }
-    button:hover {
+    a:hover {
       background-color: #cccccc;
     }
   </style>
@@ -88,13 +92,13 @@
     <span class="title">Número de Euler</span>
   </header>
   <div class="carousel-container">
-    <img src={gifs[index]} alt="Lección de matemáticas" />
+    <img src={data.body.imagen} alt="Lección de matemáticas" />
     <div>
-      <button on:click={previousGif} disabled={index === 0}>&lt; Anterior</button>
-      <button on:click={nextGif} disabled={index === gifs.length - 1}>Siguiente &gt;</button>
-      {#if index === gifs.length - 1}
-        <button on:click={goToQuiz}>Ir al Quiz</button>
+        <a href={`/lecciones/euler2/${(data.body.id == 1) ? 1 : data.body.id-1}`}>Anterior</a>
+        <a href={`/lecciones/euler4/${ (data.body.id ==data.body.maxImage)? data.body.maxImage : (parseInt(String(data.body.id)) +1) }`}>Siguiente</a>
+      
+      {#if data.body.id ==data.body.maxImage}
+      <a href={`/quize/quiz4/`}>Ir al Quiz</a>
       {/if}
     </div>
   </div>
-  
