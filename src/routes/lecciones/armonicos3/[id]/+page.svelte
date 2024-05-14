@@ -91,7 +91,7 @@
         <a href={`/lecciones/armonicos3/${ (data.body.id ==data.body.maxImage)? data.body.maxImage : (parseInt(String(data.body.id)) +1) }`}>Siguiente</a>
       
       {#if data.body.id ==data.body.maxImage}
-bernoulli2      <a href={`/prinLecciones`}>Volver a Lecciones</a>
+      <a href={`/prinLecciones`}>Volver a Lecciones</a>
       {/if}
     </div>
   </div>
