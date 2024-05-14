@@ -47,7 +47,7 @@
     height: auto;
     margin-bottom: 10px;
   }
-  button {
+  a {
     padding: 10px 20px;
     background-color: #E8FFF7; /* Color verde claro */
     border: none;
@@ -55,8 +55,10 @@
     cursor: pointer;
     font-family: 'Arial', sans-serif; /* Tipo de letra Arial */
     font-size: 16px;
+    text-decoration: none;
+    color: #000;
   }
-  button:hover {
+  a:hover {
     background-color: #96cec4; /* Color más oscuro para hover */
   }
   .back-button {
@@ -82,22 +84,22 @@
 <div class="lessons-container">
   <div class="lesson">
     <img src="/cientificos/euler.png" alt="Número de Euler">
-    <button on:click={() => goToLesson('euler')}>Número de Euler</button>
+    <a href="/lecciones/euler">Número de Euler</a>
   </div>
   <div class="lesson">
     <img src="/cientificos/bernoulli.png" alt="Número de Bernoulli">
-    <button on:click={() => goToLesson('bernoulli1')}>Número de Bernoulli</button>
+    <a href="/lecciones/bernoulli1">Número de Bernoulli</a>
   </div>
   <div class="lesson">
     <img src="/cientificos/fibonacci.png" alt="Número de Fibonacci">
-    <button on:click={() => goToLesson('fibonacci')}>Número de Fibonacci</button>
+    <a href="/lecciones/fibonacci">Número de Fibonacci</a>
   </div>
   <div class="lesson">
     <img src="/cientificos/armonicos.png" alt="Número de Armónicos">
-    <button on:click={() => goToLesson('armonicos1')}>Número de Armónicos</button>
+    <a href="/lecciones/armonicos1">Número de Armónicos</a>
   </div>
   <div class="lesson">
     <img src="/cientificos/strin.png" alt="Número de Stirling">
-    <button on:click={() => goToLesson('stirling')}>Número de Stirling</button>
+    <a href="/lecciones/stirling">Número de Stirling</a>
   </div>
 </div>

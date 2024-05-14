@@ -2,9 +2,9 @@
   import { goto } from '$app/navigation'; // Asegúrate de que esta es la ruta correcta para la función de navegación en tu proyecto.
 
   let gifs = [
-    '/leccionese2/gif1.gif',
-    '/leccionese2/gif2.gif',
-    '/leccionese2/gif3.gif',
+    '/leccionese2/1e2.png',
+    '/leccionese2/2e2.png',
+    '/leccionese2/3e2.png',
 ];
   let index = 0;
 
