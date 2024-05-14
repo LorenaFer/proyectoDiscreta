@@ -1,0 +1,100 @@
+<script>
+    import { goto } from '$app/navigation'; // Asegúrate de que esta es la ruta correcta para la función de navegación en tu proyecto.
+  
+    let gifs = [
+      '/historiae/1.png',
+      '/historiae/2.png',
+      '/historiae/3.png',
+      '/historiae/4.png',
+      '/historiae/5.png',
+      '/historiae/6.png',
+      '/historiae/7.png',
+      '/historiae/8.png',
+  ];
+    let index = 0;
+  
+    function nextGif() {
+      if (index < gifs.length - 1) {
+        index++;
+      }
+    }
+  
+    function previousGif() {
+      if (index > 0) {
+        index--;
+      }
+    }
+  
+    // Actualización para utilizar la ruta correcta
+    function goToQuiz() {
+      goto('/quize/quiz4/'); // Utiliza la barra al final para indicar el directorio
+    }
+  </script>
+  
+  <style>  
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start; /* Cambiado para alinear elementos al inicio */
+      background-color: #191919;
+      padding: 10px;
+      position: relative; /* Posicionamiento relativo para el centrado del título */
+    }
+    .logo {
+      width: 80px;
+      height: auto;
+      margin-right: 20px; /* Espacio entre el logo y el título */
+    }
+    .title {
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
+      font-size: 24px;
+      position: absolute; /* Posición absoluta para centrar */
+      left: 50%; /* Centrado horizontal */
+      transform: translateX(-50%); /* Ajuste fino para centrar exactamente */
+      width: 100%; /* Ancho completo para centrar correctamente */
+      text-align: center; /* Texto centrado */
+    }
+    .carousel-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 20px;
+      background-color: #e0f2f1;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    img {
+      width: 100%;
+      max-width: 600px; 
+      height: auto;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #cccccc;
+    }
+  </style>
+  <header>
+    <img src="/logo.png" alt="Logo de Numeric Art" class="logo">
+    <span class="title">Número de Euler</span>
+  </header>
+  <div class="carousel-container">
+    <img src={gifs[index]} alt="Lección de matemáticas" />
+    <div>
+      <button on:click={previousGif} disabled={index === 0}>&lt; Anterior</button>
+      <button on:click={nextGif} disabled={index === gifs.length - 1}>Siguiente &gt;</button>
+      {#if index === gifs.length - 1}
+        <button on:click={goToQuiz}>Ir al Quiz</button>
+      {/if}
+    </div>
+  </div>
+  
