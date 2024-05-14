@@ -84,7 +84,7 @@
 <div class="lessons-container">
   <div class="lesson">
     <img src="/cientificos/euler.png" alt="Número de Euler">
-    <a href="/lecciones/euler">Número de Euler</a>
+    <a href="/lecciones/euler/1">Número de Euler</a>
   </div>
   <div class="lesson">
     <img src="/cientificos/bernoulli.png" alt="Número de Bernoulli">
